@@ -32,23 +32,23 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnFechar = new javax.swing.JButton();
-        btnFechar1 = new javax.swing.JButton();
-        btnFechar2 = new javax.swing.JButton();
-        btnFechar3 = new javax.swing.JButton();
-        btnFechar4 = new javax.swing.JButton();
+        btnRestaurarPadrao = new javax.swing.JButton();
+        btnDesfazer = new javax.swing.JButton();
+        btnSalvarComo = new javax.swing.JButton();
+        btnAbrirImagem = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         chkImagemAzul = new javax.swing.JCheckBox();
         chkImagemVerde = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        chkImagemVermelha = new javax.swing.JCheckBox();
+        chkImagemEspelhada = new javax.swing.JCheckBox();
+        chkRotacao = new javax.swing.JCheckBox();
+        chkNegativo = new javax.swing.JCheckBox();
+        chkCorSepia = new javax.swing.JCheckBox();
+        chkPixelar = new javax.swing.JCheckBox();
+        chkTonsDeCinza = new javax.swing.JCheckBox();
+        chkBrilho = new javax.swing.JCheckBox();
+        cbFiltroPersonalizado = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lblImagem = new javax.swing.JLabel();
@@ -61,43 +61,43 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         btnFechar.setText("Fechar");
         btnFechar.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-        btnFechar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnFechar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close_30px.png"))); // NOI18N
-        btnFechar1.setText("Restaurar Padrão");
-        btnFechar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        btnFechar1.addActionListener(new java.awt.event.ActionListener() {
+        btnRestaurarPadrao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRestaurarPadrao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/restore_30px.png"))); // NOI18N
+        btnRestaurarPadrao.setText("Restaurar Padrão");
+        btnRestaurarPadrao.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        btnRestaurarPadrao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFechar1ActionPerformed(evt);
+                btnRestaurarPadraoActionPerformed(evt);
             }
         });
 
-        btnFechar2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnFechar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close_30px.png"))); // NOI18N
-        btnFechar2.setText("Desfazer");
-        btnFechar2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        btnFechar2.addActionListener(new java.awt.event.ActionListener() {
+        btnDesfazer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDesfazer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/undo_30px.png"))); // NOI18N
+        btnDesfazer.setText("Desfazer");
+        btnDesfazer.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        btnDesfazer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFechar2ActionPerformed(evt);
+                btnDesfazerActionPerformed(evt);
             }
         });
 
-        btnFechar3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnFechar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close_30px.png"))); // NOI18N
-        btnFechar3.setText("Salvar Como");
-        btnFechar3.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        btnFechar3.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvarComo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSalvarComo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save_30px.png"))); // NOI18N
+        btnSalvarComo.setText("Salvar Como");
+        btnSalvarComo.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        btnSalvarComo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFechar3ActionPerformed(evt);
+                btnSalvarComoActionPerformed(evt);
             }
         });
 
-        btnFechar4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnFechar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close_30px.png"))); // NOI18N
-        btnFechar4.setText("Abrir Imagem");
-        btnFechar4.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        btnFechar4.addActionListener(new java.awt.event.ActionListener() {
+        btnAbrirImagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAbrirImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/file_30px.png"))); // NOI18N
+        btnAbrirImagem.setText("Abrir Imagem");
+        btnAbrirImagem.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        btnAbrirImagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFechar4ActionPerformed(evt);
+                btnAbrirImagemActionPerformed(evt);
             }
         });
 
@@ -118,29 +118,29 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
             }
         });
 
-        jCheckBox3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox3.setText("Imagem Vemelha");
+        chkImagemVermelha.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkImagemVermelha.setText("Imagem Vemelha");
 
-        jCheckBox4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox4.setText("Imagem Espelhada");
+        chkImagemEspelhada.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkImagemEspelhada.setText("Imagem Espelhada");
 
-        jCheckBox5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox5.setText("Rotação da imagem em graus °");
+        chkRotacao.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkRotacao.setText("Rotação da imagem em graus °");
 
-        jCheckBox6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox6.setText("Negativo da Imagem");
+        chkNegativo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkNegativo.setText("Negativo da Imagem");
 
-        jCheckBox7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox7.setText("Aplicar a cor Sépia");
+        chkCorSepia.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkCorSepia.setText("Aplicar a cor Sépia");
 
-        jCheckBox8.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox8.setText("Pixelar Imagem");
+        chkPixelar.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkPixelar.setText("Pixelar Imagem");
 
-        jCheckBox9.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox9.setText("Tons de cinza");
+        chkTonsDeCinza.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkTonsDeCinza.setText("Tons de cinza");
 
-        jCheckBox10.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jCheckBox10.setText("Aplicar brilho");
+        chkBrilho.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkBrilho.setText("Aplicar brilho");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -149,14 +149,14 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox10)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox3)
+                    .addComponent(chkBrilho)
+                    .addComponent(chkTonsDeCinza)
+                    .addComponent(chkPixelar)
+                    .addComponent(chkCorSepia)
+                    .addComponent(chkNegativo)
+                    .addComponent(chkRotacao)
+                    .addComponent(chkImagemEspelhada)
+                    .addComponent(chkImagemVermelha)
                     .addComponent(jLabel1)
                     .addComponent(chkImagemAzul)
                     .addComponent(chkImagemVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -172,26 +172,26 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkImagemVerde)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox3)
+                .addComponent(chkImagemVermelha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox4)
+                .addComponent(chkImagemEspelhada)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox5)
+                .addComponent(chkRotacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox6)
+                .addComponent(chkNegativo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox7)
+                .addComponent(chkCorSepia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox8)
+                .addComponent(chkPixelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox9)
+                .addComponent(chkTonsDeCinza)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox10)
+                .addComponent(chkBrilho)
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbFiltroPersonalizado.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbFiltroPersonalizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Conjunto de filtros personalizado");
@@ -210,13 +210,13 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnFechar4)
+                        .addComponent(btnAbrirImagem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFechar3)
+                        .addComponent(btnSalvarComo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFechar2)
+                        .addComponent(btnDesfazer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFechar1)
+                        .addComponent(btnRestaurarPadrao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
@@ -227,7 +227,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbFiltroPersonalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
@@ -236,7 +236,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbFiltroPersonalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,10 +248,10 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFechar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFechar2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFechar3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFechar4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnRestaurarPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDesfazer, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSalvarComo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAbrirImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18))
         );
 
@@ -260,21 +260,21 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFechar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFechar1ActionPerformed
+    private void btnRestaurarPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarPadraoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFechar1ActionPerformed
+    }//GEN-LAST:event_btnRestaurarPadraoActionPerformed
 
-    private void btnFechar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFechar2ActionPerformed
+    private void btnDesfazerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesfazerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFechar2ActionPerformed
+    }//GEN-LAST:event_btnDesfazerActionPerformed
 
-    private void btnFechar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFechar3ActionPerformed
+    private void btnSalvarComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarComoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFechar3ActionPerformed
+    }//GEN-LAST:event_btnSalvarComoActionPerformed
 
-    private void btnFechar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFechar4ActionPerformed
+    private void btnAbrirImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirImagemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFechar4ActionPerformed
+    }//GEN-LAST:event_btnAbrirImagemActionPerformed
 
     private void chkImagemVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkImagemVerdeActionPerformed
         // TODO add your handling code here:
@@ -282,22 +282,22 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbrirImagem;
+    private javax.swing.JButton btnDesfazer;
     private javax.swing.JButton btnFechar;
-    private javax.swing.JButton btnFechar1;
-    private javax.swing.JButton btnFechar2;
-    private javax.swing.JButton btnFechar3;
-    private javax.swing.JButton btnFechar4;
+    private javax.swing.JButton btnRestaurarPadrao;
+    private javax.swing.JButton btnSalvarComo;
+    private javax.swing.JComboBox<String> cbFiltroPersonalizado;
+    private javax.swing.JCheckBox chkBrilho;
+    private javax.swing.JCheckBox chkCorSepia;
     private javax.swing.JCheckBox chkImagemAzul;
+    private javax.swing.JCheckBox chkImagemEspelhada;
     private javax.swing.JCheckBox chkImagemVerde;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JCheckBox chkImagemVermelha;
+    private javax.swing.JCheckBox chkNegativo;
+    private javax.swing.JCheckBox chkPixelar;
+    private javax.swing.JCheckBox chkRotacao;
+    private javax.swing.JCheckBox chkTonsDeCinza;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

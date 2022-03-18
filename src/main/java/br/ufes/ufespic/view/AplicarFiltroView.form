@@ -44,13 +44,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="btnFechar4" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAbrirImagem" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnFechar3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSalvarComo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnFechar2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDesfazer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnFechar1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRestaurarPadrao" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnFechar" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -62,7 +62,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" pref="194" max="-2" attributes="0"/>
+                                  <Component id="cbFiltroPersonalizado" min="-2" pref="194" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane1" alignment="1" min="-2" pref="505" max="-2" attributes="0"/>
                           </Group>
@@ -77,7 +77,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBox1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="cbFiltroPersonalizado" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -91,10 +91,10 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnFechar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="btnFechar1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="btnFechar2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="btnFechar3" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="btnFechar4" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="btnRestaurarPadrao" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="btnDesfazer" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="btnSalvarComo" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="btnAbrirImagem" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -120,13 +120,13 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFechar1">
+        <Component class="javax.swing.JButton" name="btnRestaurarPadrao">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Close_30px.png"/>
+              <Image iconType="3" name="/images/restore_30px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Restaurar Padr&#xe3;o"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -136,16 +136,16 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFechar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRestaurarPadraoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFechar2">
+        <Component class="javax.swing.JButton" name="btnDesfazer">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Close_30px.png"/>
+              <Image iconType="3" name="/images/undo_30px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Desfazer"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -155,16 +155,16 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFechar2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDesfazerActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFechar3">
+        <Component class="javax.swing.JButton" name="btnSalvarComo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Close_30px.png"/>
+              <Image iconType="3" name="/images/save_30px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Salvar Como"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -174,16 +174,16 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFechar3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarComoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFechar4">
+        <Component class="javax.swing.JButton" name="btnAbrirImagem">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Close_30px.png"/>
+              <Image iconType="3" name="/images/file_30px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Abrir Imagem"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -193,7 +193,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFechar4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAbrirImagemActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -214,14 +214,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCheckBox10" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkBrilho" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkTonsDeCinza" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkPixelar" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkCorSepia" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkNegativo" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkRotacao" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkImagemEspelhada" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkImagemVermelha" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="chkImagemAzul" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="chkImagemVerde" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
@@ -240,21 +240,21 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="chkImagemVerde" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkImagemVermelha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkImagemEspelhada" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkRotacao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkNegativo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkCorSepia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkPixelar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkTonsDeCinza" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox10" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBrilho" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="67" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -288,7 +288,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkImagemVerdeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+            <Component class="javax.swing.JCheckBox" name="chkImagemVermelha">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -296,7 +296,7 @@
                 <Property name="text" type="java.lang.String" value="Imagem Vemelha"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+            <Component class="javax.swing.JCheckBox" name="chkImagemEspelhada">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -304,7 +304,7 @@
                 <Property name="text" type="java.lang.String" value="Imagem Espelhada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+            <Component class="javax.swing.JCheckBox" name="chkRotacao">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -312,7 +312,7 @@
                 <Property name="text" type="java.lang.String" value="Rota&#xe7;&#xe3;o da imagem em graus &#xb0;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+            <Component class="javax.swing.JCheckBox" name="chkNegativo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -320,7 +320,7 @@
                 <Property name="text" type="java.lang.String" value="Negativo da Imagem"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+            <Component class="javax.swing.JCheckBox" name="chkCorSepia">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -328,7 +328,7 @@
                 <Property name="text" type="java.lang.String" value="Aplicar a cor S&#xe9;pia"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox8">
+            <Component class="javax.swing.JCheckBox" name="chkPixelar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -336,7 +336,7 @@
                 <Property name="text" type="java.lang.String" value="Pixelar Imagem"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox9">
+            <Component class="javax.swing.JCheckBox" name="chkTonsDeCinza">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -344,7 +344,7 @@
                 <Property name="text" type="java.lang.String" value="Tons de cinza"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox10">
+            <Component class="javax.swing.JCheckBox" name="chkBrilho">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -354,7 +354,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="cbFiltroPersonalizado">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>

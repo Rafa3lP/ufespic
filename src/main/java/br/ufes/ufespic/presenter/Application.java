@@ -76,7 +76,7 @@ public class Application {
     
     public static void change() {
         try {
-            imagemOld = imagem;
+            imagem = imagem.reverter();
             imagem = new AzulDecorator(imagem);
             view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
             view.repaint();
