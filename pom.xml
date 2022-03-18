@@ -17,11 +17,6 @@
         </repository>
     </repositories>
     <dependencies>
-        <!--<dependency>
-            <groupId>com.pss</groupId>
-            <artifactId>ProcessamentoImagemJava</artifactId>
-            <version>1.04-SNAPSHOT</version>
-        </dependency>-->
         <!-- https://github.com/claytonfraga/processamentoImagemDecorator -->
         <dependency>
 	    <groupId>com.github.claytonfraga</groupId>
