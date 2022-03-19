@@ -1,5 +1,7 @@
 ### log files ###
-log.*
+log.json
+log.xml
+log.csv
 
 ### Data base ###
 banco.db
