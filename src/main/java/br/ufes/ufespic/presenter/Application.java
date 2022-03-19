@@ -44,61 +44,9 @@ public class Application {
         
         logger = new LoggerAdapterFactory().cria(logFormat);
         
-        try {
-            imagem = new Imagem("imagens/boys-fun.jpg");
-            view = new AplicarFiltroView();
-            view.getBtnFechar().addActionListener((e) -> {
-                view.dispose();
-            });
-            view.getChkImagemAzul().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(view.getChkImagemAzul().isSelected()) {
-                        change();
-                    } else {
-                        restore();
-                    }
-                }
-            });
-            view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
-            new MainPresenter().addToDesktopPane(view);
-            view.setVisible(true);
-            //imagem = new PixeladaDecorator(imagem, 5);
-            //imagem.visualizar();
-        } catch (InterruptedException | IOException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-            ex.printStackTrace();
-        }
-        
+        new AplicarFiltroPresenter();
         
         //new MainPresenter();
-    }
-    
-    public static void change() {
-        try {
-            imagem = imagem.reverter();
-            imagem = new AzulDecorator(imagem);
-            view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
-            view.repaint();
-            view.setVisible(true);
-
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public static void restore() {
-        try {
-            imagem = imagemOld;
-            view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
-            view.repaint();
-            view.setVisible(true);
-
-        } catch (IOException ex) {
-            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
     public static String getLogFormat() {
