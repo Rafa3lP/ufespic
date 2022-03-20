@@ -15,6 +15,7 @@ import java.util.Deque;
  */
 public class ImagemZelador {
     private final Deque<ImagemMemento> elementos;
+    private ImagemMemento elementoOriginal;
     private static ImagemZelador instancia;
 
     private ImagemZelador() {
@@ -39,9 +40,18 @@ public class ImagemZelador {
         }
         throw new IllegalArgumentException("Não há estados salvos");
     }
+    
+    public void setOriginal(ImagemMemento memento) {
+        this.elementoOriginal = memento;
+    }
+
+    public ImagemMemento getOriginal() {
+        return this.elementoOriginal;
+    }
 
     public void limparHistorico() {
-        elementos.clear();
+        this.elementos.clear();
+        this.elementoOriginal = null;
         instancia = null;
     }
 }

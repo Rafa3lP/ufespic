@@ -12,7 +12,7 @@ import com.pss.imagem.processamento.decorator.ImagemComponente;
  * @author Heflain
  */
 public class FiltroBrilho implements IFiltro{
-    private final int escalaPadrao = 5;
+    private final int escalaPadrao = 80;
     
     @Override
     public ImagemComponente execute(ImagemComponente imagem, int opc) throws InterruptedException {

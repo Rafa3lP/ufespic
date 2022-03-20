@@ -353,5 +353,20 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
     public JCheckBox getChkTonsDeCinza() {
         return chkTonsDeCinza;
     }
-    
+
+    public JButton getBtnAbrirImagem() {
+        return btnAbrirImagem;
+    }
+
+    public JButton getBtnDesfazer() {
+        return btnDesfazer;
+    }
+
+    public JButton getBtnRestaurarPadrao() {
+        return btnRestaurarPadrao;
+    }
+
+    public JButton getBtnSalvarComo() {
+        return btnSalvarComo;
+    }
 }
