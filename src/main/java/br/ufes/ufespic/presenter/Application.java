@@ -9,16 +9,9 @@ import br.ufes.ufespic.logger.adapter.LoggerAdapterFactory;
 import br.ufes.ufespic.session.Session;
 import br.ufes.ufespic.util.PropertyManager;
 import br.ufes.ufespic.view.AplicarFiltroView;
-import com.pss.imagem.processamento.decorator.AzulDecorator;
-import com.pss.imagem.processamento.decorator.Imagem;
 import com.pss.imagem.processamento.decorator.ImagemComponente;
-import com.pss.imagem.processamento.decorator.PixeladaDecorator;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -31,10 +24,6 @@ public class Application {
     private static LoggerAdapter logger;
     private static String logFormat;
     private static PropertyManager propertyManager;
-    
-    private static ImagemComponente imagem;
-    private static ImagemComponente imagemOld;
-    private static AplicarFiltroView view;
     
     public Application() {
         session = Session.getInstancia();

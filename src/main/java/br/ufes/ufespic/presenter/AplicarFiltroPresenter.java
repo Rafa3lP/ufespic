@@ -4,14 +4,20 @@
  */
 package br.ufes.ufespic.presenter;
 
-import br.ufes.ufespic.command.Strategy.AplicarFiltro.FiltroAzul;
-import br.ufes.ufespic.command.Strategy.AplicarFiltro.IFiltro;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroAzul;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroBrilho;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroEspelhada;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroNegativa;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroPixelada;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroRotaciona;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroSepia;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroTomDeCinza;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroVerde;
+import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroVermelho;
+import br.ufes.ufespic.Strategy.AplicarFiltro.IFiltro;
 import br.ufes.ufespic.memento.ImagemZelador;
 import br.ufes.ufespic.model.ImagemMemento;
 import br.ufes.ufespic.view.AplicarFiltroView;
-import com.pss.imagem.processamento.decorator.AzulDecorator;
-import com.pss.imagem.processamento.decorator.BrilhoDecorator;
-import com.pss.imagem.processamento.decorator.EspelhadaDecorator;
 import com.pss.imagem.processamento.decorator.Imagem;
 import com.pss.imagem.processamento.decorator.ImagemComponente;
 import java.awt.event.ActionEvent;
@@ -50,6 +56,106 @@ public class AplicarFiltroPresenter {
                     }
                 }
             });
+            
+            view.getChkImagemVerde().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemVerde().isSelected()) {
+                        aplicarFiltro(new FiltroVerde());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkImagemVermelha().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroVermelho());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkImagemEspelhada().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroEspelhada());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkRotacao().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroRotaciona());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkNegativo().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroNegativa());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkCorSepia().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroSepia());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkPixelar().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroPixelada());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkTonsDeCinza().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroTomDeCinza());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
+            view.getChkBrilho().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getChkImagemAzul().isSelected()) {
+                        aplicarFiltro(new FiltroBrilho());
+                    } else {
+                        restore();
+                    }
+                }
+            });
+            
             view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
             new MainPresenter().addToDesktopPane(view);
             view.setVisible(true);
@@ -69,7 +175,7 @@ public class AplicarFiltroPresenter {
         try {
             //imagem = imagem.reverter();
             this.addImagemZelador();
-            imagem = filtro.execute(imagem, 0);
+            imagem = filtro.execute(imagem);
             view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
             view.repaint();
             view.setVisible(true);

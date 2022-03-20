@@ -321,4 +321,37 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
     public JCheckBox getChkImagemVerde() {
         return chkImagemVerde;
     }
+
+    public JCheckBox getChkBrilho() {
+        return chkBrilho;
+    }
+
+    public JCheckBox getChkCorSepia() {
+        return chkCorSepia;
+    }
+
+    public JCheckBox getChkImagemEspelhada() {
+        return chkImagemEspelhada;
+    }
+
+    public JCheckBox getChkImagemVermelha() {
+        return chkImagemVermelha;
+    }
+
+    public JCheckBox getChkNegativo() {
+        return chkNegativo;
+    }
+
+    public JCheckBox getChkPixelar() {
+        return chkPixelar;
+    }
+
+    public JCheckBox getChkRotacao() {
+        return chkRotacao;
+    }
+
+    public JCheckBox getChkTonsDeCinza() {
+        return chkTonsDeCinza;
+    }
+    
 }
