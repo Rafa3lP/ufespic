@@ -7,14 +7,17 @@ package br.ufes.ufespic.model;
 import br.ufes.ufespic.view.AplicarFiltroView;
 import com.pss.imagem.processamento.decorator.ImagemComponente;
 import java.io.Serializable;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Heflain
  */
-public class ImagemMemento implements Serializable{
+public class ImagemMemento implements Serializable {
+
     private final ImagemComponente imagem;
-    
+    //private final JPanel filtrosAplicados;
+
     private final boolean estadoAzul;
     private final boolean estadoVerde;
     private final boolean estadoVermelho;
@@ -26,8 +29,9 @@ public class ImagemMemento implements Serializable{
     private final boolean estadoTonsDeCinza;
     private final boolean estadoBrilho;
 
-    public ImagemMemento(ImagemComponente imagem, AplicarFiltroView view){
+    public ImagemMemento(ImagemComponente imagem, AplicarFiltroView view) {
         this.imagem = imagem;
+
         this.estadoAzul = view.getChkImagemAzul().isSelected();
         this.estadoVerde = view.getChkImagemVerde().isSelected();
         this.estadoVermelho = view.getChkImagemVermelha().isSelected();
@@ -38,7 +42,13 @@ public class ImagemMemento implements Serializable{
         this.estadoPexelar = view.getChkPixelar().isSelected();
         this.estadoTonsDeCinza = view.getChkTonsDeCinza().isSelected();
         this.estadoBrilho = view.getChkBrilho().isSelected();
+
     }
+    
+    /*public ImagemMemento(ImagemComponente imagem, JPanel painel){
+        this.imagem = imagem;
+        this.filtrosAplicados = painel;
+    }*/
 
     public ImagemComponente getImagem() {
         return imagem;
@@ -83,6 +93,8 @@ public class ImagemMemento implements Serializable{
     public boolean isEstadoBrilho() {
         return estadoBrilho;
     }
-    
-    
+
+    /*public JPanel getFiltrosAplicados() {
+        return filtrosAplicados;
+    }*/
 }

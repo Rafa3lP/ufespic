@@ -7,6 +7,7 @@ package br.ufes.ufespic.view;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -36,7 +37,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         btnDesfazer = new javax.swing.JButton();
         btnSalvarComo = new javax.swing.JButton();
         btnAbrirImagem = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        painelFiltros = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         chkImagemAzul = new javax.swing.JCheckBox();
         chkImagemVerde = new javax.swing.JCheckBox();
@@ -53,7 +54,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         lblImagem = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
+        setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         setTitle("Aplicar filtro");
 
         btnFechar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -101,8 +102,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        painelFiltros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Filtros");
@@ -142,13 +142,13 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         chkBrilho.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         chkBrilho.setText("Aplicar brilho");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout painelFiltrosLayout = new javax.swing.GroupLayout(painelFiltros);
+        painelFiltros.setLayout(painelFiltrosLayout);
+        painelFiltrosLayout.setHorizontalGroup(
+            painelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelFiltrosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkBrilho)
                     .addComponent(chkTonsDeCinza)
                     .addComponent(chkPixelar)
@@ -162,9 +162,9 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                     .addComponent(chkImagemVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        painelFiltrosLayout.setVerticalGroup(
+            painelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelFiltrosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -190,13 +190,11 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        cbFiltroPersonalizado.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbFiltroPersonalizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Conjunto de filtros personalizado");
 
-        lblImagem.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(lblImagem);
@@ -221,7 +219,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                         .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(painelFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -241,7 +239,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(painelFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 61, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
@@ -301,11 +299,11 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblImagem;
+    private javax.swing.JPanel painelFiltros;
     // End of variables declaration//GEN-END:variables
-
+    
     public JLabel getLblImagem() {
         return lblImagem;
     }
@@ -369,4 +367,8 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
     public JButton getBtnSalvarComo() {
         return btnSalvarComo;
     }
+
+    public JPanel getPainelFiltros() {
+        return painelFiltros;
+    }  
 }

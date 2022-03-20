@@ -42,122 +42,115 @@ public class AplicarFiltroPresenter {
 
     public AplicarFiltroPresenter() {
         this.zelador = ImagemZelador.getInstancia();
+
         try {
             imagem = new Imagem("imagens/boys-fun.jpg");
             view = new AplicarFiltroView();
 
             zelador.setOriginal(new ImagemMemento(imagem, view));
-            
+            this.addImagemZelador();
+
             view.getBtnFechar().addActionListener((e) -> {
                 view.dispose();
             });
+
             view.getChkImagemAzul().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkImagemAzul().isSelected()) {
-                        aplicarFiltro(new FiltroAzul());
-                    } else {
-                        restore();
-                    }
+                    view.getChkImagemAzul().setEnabled(false);
+                    aplicarFiltro(new FiltroAzul());
+                    addImagemZelador();
                 }
             });
 
             view.getChkImagemVerde().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkImagemVerde().isSelected()) {
-                        aplicarFiltro(new FiltroVerde());
-                    } else {
-                        restore();
-                    }
+                    view.getChkImagemVerde().setEnabled(false);
+                    aplicarFiltro(new FiltroVerde());
+                    addImagemZelador();
                 }
             });
 
             view.getChkImagemVermelha().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkImagemVermelha().isSelected()) {
-                        aplicarFiltro(new FiltroVermelho());
-                    } else {
-                        restore();
-                    }
+                    view.getChkImagemVermelha().setEnabled(false);
+                    aplicarFiltro(new FiltroVermelho());
+                    addImagemZelador();
                 }
             });
 
             view.getChkImagemEspelhada().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkImagemEspelhada().isSelected()) {
-                        aplicarFiltro(new FiltroEspelhada());
-                    } else {
-                        restore();
-                    }
+                    view.getChkImagemEspelhada().setEnabled(false);
+
+                    aplicarFiltro(new FiltroEspelhada());
+
+                    addImagemZelador();
                 }
             });
 
             view.getChkRotacao().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkRotacao().isSelected()) {
-                        aplicarFiltro(new FiltroRotaciona());
-                    } else {
-                        restore();
-                    }
+                    view.getChkRotacao().setEnabled(false);
+                    aplicarFiltro(new FiltroRotaciona());
+                    addImagemZelador();
                 }
             });
 
             view.getChkNegativo().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkNegativo().isSelected()) {
-                        aplicarFiltro(new FiltroNegativa());
-                    } else {
-                        restore();
-                    }
+                    view.getChkNegativo().setEnabled(false);
+                    aplicarFiltro(new FiltroNegativa());
+                    addImagemZelador();
                 }
             });
 
             view.getChkCorSepia().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkCorSepia().isSelected()) {
-                        aplicarFiltro(new FiltroSepia());
-                    } else {
-                        restore();
-                    }
+                    view.getChkCorSepia().setEnabled(false);
+                    aplicarFiltro(new FiltroSepia());
+                    addImagemZelador();
                 }
             });
 
             view.getChkPixelar().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkPixelar().isSelected()) {
+                    view.getChkPixelar().setEnabled(false);
+                    try {
                         aplicarFiltro(new FiltroPixelada());
-                    } else {
-                        restore();
+                    } catch (ArrayIndexOutOfBoundsException ex) {
+                        Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(view, "Esse filtro está passando por alguns problemas tente usa-lo antes dos demais filtro", "Desculpa",  JOptionPane.INFORMATION_MESSAGE);
+                        view.getChkPixelar().setEnabled(true);
+                        view.getChkPixelar().setSelected(false);
+                        return;
                     }
+                    addImagemZelador();
                 }
             });
 
             view.getChkTonsDeCinza().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkTonsDeCinza().isSelected()) {
-                        aplicarFiltro(new FiltroTomDeCinza());
-                    } else {
-                        restore();
-                    }
+                    view.getChkTonsDeCinza().setEnabled(false);
+                    aplicarFiltro(new FiltroTomDeCinza());
+                    addImagemZelador();
                 }
             });
 
             view.getChkBrilho().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (view.getChkBrilho().isSelected()) {
-                        aplicarFiltro(new FiltroBrilho());
-                    } else {
-                        restore();
-                    }
+                    view.getChkBrilho().setEnabled(false);
+                    aplicarFiltro(new FiltroBrilho());
+                    addImagemZelador();
                 }
             });
 
@@ -180,8 +173,7 @@ public class AplicarFiltroPresenter {
             view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
             new MainPresenter().addToDesktopPane(view);
             view.setVisible(true);
-            //imagem = new PixeladaDecorator(imagem, 5);
-            //imagem.visualizar();
+
         } catch (InterruptedException | IOException ex) {
             System.out.println("Erro: " + ex.getMessage());
             ex.printStackTrace();
@@ -194,7 +186,6 @@ public class AplicarFiltroPresenter {
 
         try {
             //imagem = imagem.reverter();
-            this.addImagemZelador();
 
             if (necessita == "") {
                 imagem = filtro.execute(imagem);
@@ -214,10 +205,6 @@ public class AplicarFiltroPresenter {
         }
     }
 
-    public void addImagemZelador() {
-        this.zelador.add(new ImagemMemento(this.imagem, view));
-    }
-
     public void restore() {
         this.aplicaEstadoMemento(this.zelador.get());
     }
@@ -226,20 +213,44 @@ public class AplicarFiltroPresenter {
         this.aplicaEstadoMemento(this.zelador.getOriginal());
     }
 
+    public void addImagemZelador() {
+        this.zelador.add(new ImagemMemento(this.imagem, view));
+    }
+
     public void aplicaEstadoMemento(ImagemMemento memento) {
         try {
-            this.addImagemZelador();
             imagem = memento.getImagem();
+
             view.getChkImagemAzul().setSelected(memento.isEstadoAzul());
+            view.getChkImagemAzul().setEnabled(!memento.isEstadoAzul());
+
             view.getChkImagemVerde().setSelected(memento.isEstadoVerde());
+            view.getChkImagemVerde().setEnabled(!memento.isEstadoVerde());
+
             view.getChkImagemVermelha().setSelected(memento.isEstadoVermelho());
+            view.getChkImagemVermelha().setEnabled(!memento.isEstadoVermelho());
+
             view.getChkImagemEspelhada().setSelected(memento.isEstadoEspelhada());
+            view.getChkImagemEspelhada().setEnabled(!memento.isEstadoEspelhada());
+
             view.getChkRotacao().setSelected(memento.isEstadoRotacao());
+            view.getChkRotacao().setEnabled(!memento.isEstadoRotacao());
+
             view.getChkNegativo().setSelected(memento.isEstadoNegativo());
+            view.getChkNegativo().setEnabled(!memento.isEstadoNegativo());
+
             view.getChkCorSepia().setSelected(memento.isEstadoSerpia());
+            view.getChkCorSepia().setEnabled(!memento.isEstadoSerpia());
+
             view.getChkPixelar().setSelected(memento.isEstadoPexelar());
+            view.getChkPixelar().setEnabled(!memento.isEstadoPexelar());
+
             view.getChkTonsDeCinza().setSelected(memento.isEstadoTonsDeCinza());
+            view.getChkTonsDeCinza().setEnabled(!memento.isEstadoTonsDeCinza());
+
             view.getChkBrilho().setSelected(memento.isEstadoBrilho());
+            view.getChkBrilho().setEnabled(!memento.isEstadoBrilho());
+
             view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
             view.repaint();
             view.setVisible(true);
