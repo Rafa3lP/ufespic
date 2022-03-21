@@ -15,6 +15,7 @@ import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroTomDeCinza;
 import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroVerde;
 import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroVermelho;
 import br.ufes.ufespic.Strategy.AplicarFiltro.IFiltro;
+import br.ufes.ufespic.decorator.salvarimagem.SalvarImagemFiltroDecorator;
 import br.ufes.ufespic.memento.ImagemZelador;
 import br.ufes.ufespic.model.ImagemMemento;
 import br.ufes.ufespic.view.AplicarFiltroView;
@@ -194,6 +195,7 @@ public class AplicarFiltroPresenter {
                 imagem = filtro.execute(imagem, aux);
             }
 
+            new SalvarImagemFiltroDecorator(imagem, "boys");
             view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
             view.repaint();
             view.setVisible(true);
