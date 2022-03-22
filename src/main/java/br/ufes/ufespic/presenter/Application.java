@@ -33,9 +33,7 @@ public class Application {
         
         logger = new LoggerAdapterFactory().cria(logFormat);
         
-        new AplicarFiltroPresenter();
-        
-        //new MainPresenter();
+        new MainPresenter();
     }
     
     public static String getLogFormat() {

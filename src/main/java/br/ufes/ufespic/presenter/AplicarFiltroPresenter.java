@@ -40,8 +40,10 @@ public class AplicarFiltroPresenter {
     private ImagemComponente imagemOld;
     private AplicarFiltroView view;
     private ImagemZelador zelador;
+    private MainPresenter mainPresenter;
 
-    public AplicarFiltroPresenter() {
+    public AplicarFiltroPresenter(MainPresenter mainPresenter) {
+        this.mainPresenter = mainPresenter;
         this.zelador = ImagemZelador.getInstancia();
 
         try {
@@ -172,7 +174,7 @@ public class AplicarFiltroPresenter {
             });
 
             view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
-            new MainPresenter().addToDesktopPane(view);
+            mainPresenter.addToDesktopPane(view);
             view.setVisible(true);
 
         } catch (InterruptedException | IOException ex) {

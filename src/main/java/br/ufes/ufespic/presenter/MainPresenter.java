@@ -82,6 +82,8 @@ public class MainPresenter implements Observer {
         });
  
         this.view.setVisible(true);
+        //new AplicarFiltroPresenter(this);
+        new EscolherImagemPresenter(this);
    
     }
     
