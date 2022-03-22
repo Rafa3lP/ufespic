@@ -5,7 +5,7 @@
 package br.ufes.ufespic.dao;
 
 import br.ufes.ufespic.connection.ConnectionSQLiteFactory;
-import br.ufes.ufespic.model.Imagem;
+import br.ufes.ufespic.model.ImagemProxy;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,18 +46,17 @@ public class ImagemSQLiteDAO implements IImagemDAO {
     }
 
     @Override
-    public void inserir(Imagem imagem) {
-        String sql = "INSERT INTO imagem(codImagem, caminhaImagem, caminhoMiniatura, nomeArquivo)"
-                + " VALUES (?, ?, ?, ?);";
+    public void inserir(ImagemProxy imagem) {
+        String sql = "INSERT INTO imagem(caminhoImagem, caminhoMiniatura, nomeArquivo)"
+                + " VALUES (?, ?, ?);";
         Connection con = null;
         PreparedStatement pst = null;
         try {
             con = ConnectionSQLiteFactory.getConnection();
             pst = con.prepareStatement(sql);
-            pst.setInt(1, imagem.getCodImagem());
-            pst.setString(2, imagem.getCaminhoImagem());
-            pst.setString(3, imagem.getCaminhoMiniatura());
-            pst.setString(4, imagem.getNomeArquivo());
+            pst.setString(1, imagem.getCaminhoImagem());
+            pst.setString(2, imagem.getCaminhoMiniatura());
+            pst.setString(3, imagem.getNomeArquivo());
             pst.execute();
         } catch (SQLException ex) {
             throw new RuntimeException(ex.getMessage(), ex.getCause());
@@ -85,12 +84,12 @@ public class ImagemSQLiteDAO implements IImagemDAO {
     }
 
     @Override
-    public List<Imagem> getImagens() {
+    public List<ImagemProxy> getImagens() {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Imagem imagem;
-        List<Imagem> resposta = new ArrayList<Imagem>();
+        ImagemProxy imagem;
+        List<ImagemProxy> resposta = new ArrayList<>();
         try {
             String sql = "SELECT * FROM imagem;";
 
@@ -99,7 +98,7 @@ public class ImagemSQLiteDAO implements IImagemDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                imagem = new Imagem(
+                imagem = new ImagemProxy(
                         rs.getInt("codImagem"),
                         rs.getString("caminhoImagem"),
                         rs.getString("caminhoMiniatura"),
@@ -119,12 +118,12 @@ public class ImagemSQLiteDAO implements IImagemDAO {
     }
 
     @Override
-    public List<Imagem> getImagens(List<Integer> idImagens) {
+    public List<ImagemProxy> getImagens(List<Integer> idImagens) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Imagem imagem;
-        List<Imagem> resposta = new ArrayList<Imagem>();
+        ImagemProxy imagem;
+        List<ImagemProxy> resposta = new ArrayList<ImagemProxy>();
         try {
             String sql = "SELECT * FROM imagem WHERE codImagem = ?;";
 
@@ -135,7 +134,7 @@ public class ImagemSQLiteDAO implements IImagemDAO {
                 rs = ps.executeQuery();
 
                 while (rs.next()) {
-                    imagem = new Imagem(
+                    imagem = new ImagemProxy(
                             rs.getInt("codImagem"),
                             rs.getString("caminhoImagem"),
                             rs.getString("caminhoMiniatura"),

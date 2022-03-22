@@ -35,8 +35,6 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         btnFechar = new javax.swing.JButton();
         btnRestaurarPadrao = new javax.swing.JButton();
         btnDesfazer = new javax.swing.JButton();
-        btnSalvarComo = new javax.swing.JButton();
-        btnAbrirImagem = new javax.swing.JButton();
         painelFiltros = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         chkImagemAzul = new javax.swing.JCheckBox();
@@ -79,26 +77,6 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         btnDesfazer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDesfazerActionPerformed(evt);
-            }
-        });
-
-        btnSalvarComo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnSalvarComo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save_30px.png"))); // NOI18N
-        btnSalvarComo.setText("Salvar Como");
-        btnSalvarComo.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        btnSalvarComo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarComoActionPerformed(evt);
-            }
-        });
-
-        btnAbrirImagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnAbrirImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/file_30px.png"))); // NOI18N
-        btnAbrirImagem.setText("Abrir Imagem");
-        btnAbrirImagem.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        btnAbrirImagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAbrirImagemActionPerformed(evt);
             }
         });
 
@@ -208,10 +186,6 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAbrirImagem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSalvarComo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDesfazer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRestaurarPadrao)
@@ -247,9 +221,7 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRestaurarPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDesfazer, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSalvarComo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAbrirImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnDesfazer, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18))
         );
 
@@ -266,25 +238,15 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDesfazerActionPerformed
 
-    private void btnSalvarComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarComoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarComoActionPerformed
-
-    private void btnAbrirImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirImagemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAbrirImagemActionPerformed
-
     private void chkImagemVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkImagemVerdeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkImagemVerdeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAbrirImagem;
     private javax.swing.JButton btnDesfazer;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnRestaurarPadrao;
-    private javax.swing.JButton btnSalvarComo;
     private javax.swing.JComboBox<String> cbFiltroPersonalizado;
     private javax.swing.JCheckBox chkBrilho;
     private javax.swing.JCheckBox chkCorSepia;
@@ -352,20 +314,12 @@ public class AplicarFiltroView extends javax.swing.JInternalFrame {
         return chkTonsDeCinza;
     }
 
-    public JButton getBtnAbrirImagem() {
-        return btnAbrirImagem;
-    }
-
     public JButton getBtnDesfazer() {
         return btnDesfazer;
     }
 
     public JButton getBtnRestaurarPadrao() {
         return btnRestaurarPadrao;
-    }
-
-    public JButton getBtnSalvarComo() {
-        return btnSalvarComo;
     }
 
     public JPanel getPainelFiltros() {

@@ -4,7 +4,7 @@
  */
 package br.ufes.ufespic.dao;
 
-import br.ufes.ufespic.model.Imagem;
+import br.ufes.ufespic.model.ImagemProxy;
 import java.util.List;
 
 /**
@@ -12,8 +12,8 @@ import java.util.List;
  * @author Heflain
  */
 public interface IImagemDAO {
-    public void inserir(Imagem imagem);
+    public void inserir(ImagemProxy imagem);
     public void excluir(int codImagem);
-    public List<Imagem> getImagens();
-    public List<Imagem> getImagens(List<Integer> idImagens);
+    public List<ImagemProxy> getImagens();
+    public List<ImagemProxy> getImagens(List<Integer> idImagens);
 }

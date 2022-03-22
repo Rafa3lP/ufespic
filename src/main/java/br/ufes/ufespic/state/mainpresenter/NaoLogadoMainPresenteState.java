@@ -19,6 +19,7 @@ public class NaoLogadoMainPresenteState extends MainPresenterState {
         this.view.getBtnOpcoes().setVisible(false);
         this.view.getLblNomeTipoUsuario().setVisible(false);
         this.view.getLblNomeUsuario().setVisible(false);
+        this.view.getBtnImagens().setVisible(false);
    
     }
     

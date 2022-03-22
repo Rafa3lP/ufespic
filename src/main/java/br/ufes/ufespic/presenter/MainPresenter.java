@@ -80,10 +80,17 @@ public class MainPresenter implements Observer {
                 JOptionPane.showMessageDialog(getView(), ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             }
         });
+        
+        this.view.getBtnEscolherImagem().addActionListener((e) -> {
+            try {
+                state.escolherImagem();
+            } catch (RuntimeException ex) {
+                JOptionPane.showMessageDialog(getView(), ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        });
  
         this.view.setVisible(true);
         //new AplicarFiltroPresenter(this);
-        new EscolherImagemPresenter(this);
    
     }
     

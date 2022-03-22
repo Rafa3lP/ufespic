@@ -4,14 +4,11 @@
  */
 package br.ufes.ufespic.presenter;
 
+import br.ufes.ufespic.command.escolherImagem.ObterImagensCommandTemplate;
+import br.ufes.ufespic.state.escolherimagempresenter.EscolherImagemState;
+import br.ufes.ufespic.state.escolherimagempresenter.ObtendoImagensState;
+import br.ufes.ufespic.state.escolherimagempresenter.ProntoParaEscolherState;
 import br.ufes.ufespic.view.EscolherImagemView;
-import com.pss.imagem.processamento.decorator.Imagem;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 
 /**
  *
@@ -20,33 +17,59 @@ import javax.swing.JLabel;
 public class EscolherImagemPresenter {
     private EscolherImagemView view;
     private MainPresenter mainPresenter;
+    
+    private EscolherImagemState state;
+    
     public EscolherImagemPresenter(MainPresenter mainPresenter) {
-        try {
-            view = new EscolherImagemView();
-            this.mainPresenter = mainPresenter;
-            
-            Imagem imagem = new Imagem("imagens/thumb/boys-fun-thumb.jpg");
-            
-            this.view.getPainelImagens().add(new JButton(new ImageIcon(imagem.getImagem())));
-            
-            Imagem imagem2 = new Imagem("imagens/thumb/children-outdoors-thumb.jpg");
-          
-            this.view.getPainelImagens().add(new JButton(new ImageIcon(imagem2.getImagem())));
-            
-            this.view.getPainelImagens().add(new JButton(new ImageIcon(imagem.getImagem())));
-            this.view.getPainelImagens().add(new JButton(new ImageIcon(imagem2.getImagem())));
-            this.view.getPainelImagens().add(new JButton(new ImageIcon(imagem.getImagem())));
-            this.view.getPainelImagens().add(new JButton(new ImageIcon(imagem2.getImagem())));
-            
-            view.setVisible(true);
-            mainPresenter.addToDesktopPane(view);
-        } catch (IOException ex) {
-            Logger.getLogger(EscolherImagemPresenter.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(EscolherImagemPresenter.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        view = new EscolherImagemView();
+        this.mainPresenter = mainPresenter;
+        this.view.getBtnFechar().addActionListener((e) -> {
+            state.fechar();
+        });
+        
+        obterImagens();
+        
+        view.setVisible(true);
+        mainPresenter.addToDesktopPane(view);
         
     }
     
+    public EscolherImagemView getView() {
+        return this.view;
+    }
+
+    public void setState(EscolherImagemState state) {
+        this.state = state;
+    }
+    
+    private void obterImagens() {
+        EscolherImagemPresenter presenter = this;
+        new ObterImagensCommandTemplate(this){
+            @Override
+            public void onStart() {
+                setState(new ObtendoImagensState(presenter));
+            }
+
+            @Override
+            public void onError(Exception ex) {
+                throw new RuntimeException(ex.getMessage(), ex.getCause());
+            }
+
+            @Override
+            public void onSuccess() {
+                setState(new ProntoParaEscolherState(presenter));
+                view.repaint();
+            }
+        }.executar();
+    }
+
+    public EscolherImagemState getState() {
+        return state;
+    }
+
+    public MainPresenter getMainPresenter() {
+        return mainPresenter;
+    }
     
 }

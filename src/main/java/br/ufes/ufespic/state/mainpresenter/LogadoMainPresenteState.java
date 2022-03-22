@@ -9,6 +9,7 @@ import br.ufes.ufespic.presenter.Application;
 import br.ufes.ufespic.presenter.BuscarNotificacaoPresenter;
 import br.ufes.ufespic.presenter.BuscarUsuarioPresenter;
 import br.ufes.ufespic.presenter.ConfiguracoesPresenter;
+import br.ufes.ufespic.presenter.EscolherImagemPresenter;
 import br.ufes.ufespic.presenter.MainPresenter;
 import br.ufes.ufespic.presenter.ManterUsuarioPresenter;
 
@@ -35,6 +36,7 @@ public class LogadoMainPresenteState extends MainPresenterState {
         this.view.getBtnOpcoes().setVisible(true);
         this.view.getLblNomeTipoUsuario().setVisible(true);
         this.view.getLblNomeUsuario().setVisible(true);
+        this.view.getBtnImagens().setVisible(true);
    
         setNumNotificacoes();
     }
@@ -62,6 +64,11 @@ public class LogadoMainPresenteState extends MainPresenterState {
     @Override
     public void meuUsuario() {
         new ManterUsuarioPresenter(presenter, usuarioAutenticado);
+    }
+    
+    @Override
+    public void escolherImagem() {
+        new EscolherImagemPresenter(presenter);
     }
     
     @Override
