@@ -28,7 +28,7 @@ public class NotificacaoSQLiteDAO implements INotificacaoDAO {
             throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
-    
+
     private void criaTNotificacao() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS notificacao("
                 + "idNotificacao INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -41,14 +41,14 @@ public class NotificacaoSQLiteDAO implements INotificacaoDAO {
                 + "FOREIGN KEY(idRemetente) REFERENCES usuario(idUsuario),"
                 + "FOREIGN KEY(idDestinatario) REFERENCES usuario(idUsuario)"
                 + ");";
-        
+
         Connection con = ConnectionSQLiteFactory.getConnection();
         Statement st = con.createStatement();
         st.execute(sql);
         st.close();
         ConnectionSQLiteFactory.closeConnection(con);
     }
-    
+
     @Override
     public void criar(Notificacao notificacao) {
         String sql = "INSERT INTO notificacao(idRemetente, idDestinatario, titulo, mensagem, aprovacao) "
@@ -64,7 +64,7 @@ public class NotificacaoSQLiteDAO implements INotificacaoDAO {
             pst.setString(4, notificacao.getMensagem());
             pst.setBoolean(5, notificacao.isAprovacao());
             pst.execute();
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             throw new RuntimeException(ex.getMessage(), ex.getCause());
         } finally {
             ConnectionSQLiteFactory.closeConnection(con, pst);
@@ -76,7 +76,7 @@ public class NotificacaoSQLiteDAO implements INotificacaoDAO {
         String sql = "UPDATE notificacao SET lida = true WHERE idNotificacao = ?";
         Connection con = null;
         PreparedStatement ps = null;
-       
+
         try {
             con = ConnectionSQLiteFactory.getConnection();
             ps = con.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class NotificacaoSQLiteDAO implements INotificacaoDAO {
         } finally {
             ConnectionSQLiteFactory.closeConnection(con, ps);
         }
-        
+
     }
 
     @Override
@@ -96,7 +96,7 @@ public class NotificacaoSQLiteDAO implements INotificacaoDAO {
         String sql = "DELETE FROM notificacao WHERE idNotificacao = ?;";
         Connection con = null;
         PreparedStatement pst = null;
-        
+
         try {
             con = ConnectionSQLiteFactory.getConnection();
             pst = con.prepareStatement(sql);
@@ -119,33 +119,33 @@ public class NotificacaoSQLiteDAO implements INotificacaoDAO {
         try {
             String sql = "SELECT * FROM notificacao WHERE idDestinatario = ?";
             sql = (somenteLidas) ? sql + " AND lida = true;" : sql + ";";
-           
+
             con = ConnectionSQLiteFactory.getConnection();
             ps = con.prepareStatement(sql);
             ps.setLong(1, usuario.getId());
             rs = ps.executeQuery();
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 notificacao = new Notificacao(
-                    rs.getLong("idNotificacao"), 
-                    rs.getLong("idRemetente"),
-                    rs.getLong("idDestinatario"), 
-                    rs.getString("titulo"),
-                    rs.getString("mensagem"),
-                    rs.getBoolean("lida"),
-                    rs.getBoolean("aprovacao")
+                        rs.getLong("idNotificacao"),
+                        rs.getLong("idRemetente"),
+                        rs.getLong("idDestinatario"),
+                        rs.getString("titulo"),
+                        rs.getString("mensagem"),
+                        rs.getBoolean("lida"),
+                        rs.getBoolean("aprovacao")
                 );
-                
+
                 resposta.add(notificacao);
             }
-            
+
             return resposta;
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex.getMessage(), ex.getCause());
         } finally {
             ConnectionSQLiteFactory.closeConnection(con, ps, rs);
         }
     }
-    
+
 }
