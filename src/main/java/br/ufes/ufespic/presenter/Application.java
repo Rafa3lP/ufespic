@@ -8,8 +8,6 @@ import br.ufes.ufespic.logger.adapter.LoggerAdapter;
 import br.ufes.ufespic.logger.adapter.LoggerAdapterFactory;
 import br.ufes.ufespic.session.Session;
 import br.ufes.ufespic.util.PropertyManager;
-import br.ufes.ufespic.view.AplicarFiltroView;
-import com.pss.imagem.processamento.decorator.ImagemComponente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
@@ -33,9 +31,7 @@ public class Application {
         
         logger = new LoggerAdapterFactory().cria(logFormat);
         
-        new AplicarFiltroPresenter();
-        
-        //new MainPresenter();
+        new MainPresenter();
     }
     
     public static String getLogFormat() {

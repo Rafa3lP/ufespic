@@ -35,6 +35,9 @@ public abstract class MainPresenterState {
     public void meuUsuario() {
         throw new RuntimeException("Método configurar não pode ser executado");
     }
+    public void escolherImagem() {
+        throw new RuntimeException("Método escolherImagem não pode ser executado");
+    }
     public void setNumNotificacoes() {
         
     }

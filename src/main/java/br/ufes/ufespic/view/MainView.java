@@ -47,6 +47,8 @@ public class MainView extends javax.swing.JFrame {
         btnOpcoes = new javax.swing.JMenu();
         btnConfigurar = new javax.swing.JMenuItem();
         btnMeuUsuario = new javax.swing.JMenuItem();
+        btnImagens = new javax.swing.JMenu();
+        btnEscolherImagem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Usuarios - PSS");
@@ -162,6 +164,22 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(btnOpcoes);
 
+        btnImagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/choose_20px.png"))); // NOI18N
+        btnImagens.setText("Imagens");
+        btnImagens.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnImagens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImagensActionPerformed(evt);
+            }
+        });
+
+        btnEscolherImagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnEscolherImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/choose_20px.png"))); // NOI18N
+        btnEscolherImagem.setText("Escolher Imagem");
+        btnImagens.add(btnEscolherImagem);
+
+        menuBar.add(btnImagens);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,11 +209,17 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOpcoesActionPerformed
 
+    private void btnImagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagensActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImagensActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnBuscar;
     private javax.swing.JMenuItem btnCadastrar;
     private javax.swing.JMenuItem btnConfigurar;
+    private javax.swing.JMenuItem btnEscolherImagem;
+    private javax.swing.JMenu btnImagens;
     private javax.swing.JMenuItem btnMeuUsuario;
     private javax.swing.JButton btnNotificacoes;
     private javax.swing.JMenu btnOpcoes;
@@ -247,6 +271,14 @@ public class MainView extends javax.swing.JFrame {
 
     public JMenuItem getBtnMeuUsuario() {
         return btnMeuUsuario;
+    }
+
+    public JMenuItem getBtnEscolherImagem() {
+        return btnEscolherImagem;
+    }
+
+    public JMenu getBtnImagens() {
+        return btnImagens;
     }
 
 }

@@ -18,8 +18,8 @@ import br.ufes.ufespic.Strategy.AplicarFiltro.IFiltro;
 import br.ufes.ufespic.decorator.salvarimagem.SalvarImagemFiltroDecorator;
 import br.ufes.ufespic.memento.ImagemZelador;
 import br.ufes.ufespic.model.ImagemMemento;
+import br.ufes.ufespic.model.ImagemProxy;
 import br.ufes.ufespic.view.AplicarFiltroView;
-import com.pss.imagem.processamento.decorator.Imagem;
 import com.pss.imagem.processamento.decorator.ImagemComponente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +28,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -36,19 +35,23 @@ import org.json.simple.parser.ParseException;
  */
 public class AplicarFiltroPresenter {
 
-    private ImagemComponente imagem;
+    private ImagemComponente imagemComponente;
     private ImagemComponente imagemOld;
     private AplicarFiltroView view;
     private ImagemZelador zelador;
+    private MainPresenter mainPresenter;
+    private ImagemProxy imagemProxy;
 
-    public AplicarFiltroPresenter() {
+    public AplicarFiltroPresenter(MainPresenter mainPresenter, ImagemProxy imagemProxy) {
+        this.mainPresenter = mainPresenter;
+        this.imagemProxy = imagemProxy;
         this.zelador = ImagemZelador.getInstancia();
 
         try {
-            imagem = new Imagem("imagens/boys-fun.jpg");
+            imagemComponente = imagemProxy.getImagem();
             view = new AplicarFiltroView();
 
-            zelador.setOriginal(new ImagemMemento(imagem, view));
+            zelador.setOriginal(new ImagemMemento(imagemComponente, view));
             this.addImagemZelador();
 
             view.getBtnFechar().addActionListener((e) -> {
@@ -171,8 +174,8 @@ public class AplicarFiltroPresenter {
 
             });
 
-            view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
-            new MainPresenter().addToDesktopPane(view);
+            view.getLblImagem().setIcon(new ImageIcon(imagemComponente.getImagem()));
+            mainPresenter.addToDesktopPane(view);
             view.setVisible(true);
 
         } catch (InterruptedException | IOException ex) {
@@ -189,14 +192,14 @@ public class AplicarFiltroPresenter {
             //imagem = imagem.reverter();
 
             if (necessita == "") {
-                imagem = filtro.execute(imagem);
+                imagemComponente = filtro.execute(imagemComponente);
             } else {
                 aux = Integer.parseInt(JOptionPane.showInputDialog("entre com " + necessita).trim());
-                imagem = filtro.execute(imagem, aux);
+                imagemComponente = filtro.execute(imagemComponente, aux);
             }
 
-            new SalvarImagemFiltroDecorator(imagem, "boys");
-            view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
+            new SalvarImagemFiltroDecorator(imagemComponente, "boys");
+            view.getLblImagem().setIcon(new ImageIcon(imagemComponente.getImagem()));
             view.repaint();
             view.setVisible(true);
 
@@ -216,12 +219,12 @@ public class AplicarFiltroPresenter {
     }
 
     public void addImagemZelador() {
-        this.zelador.add(new ImagemMemento(this.imagem, view));
+        this.zelador.add(new ImagemMemento(this.imagemComponente, view));
     }
 
     public void aplicaEstadoMemento(ImagemMemento memento) {
         try {
-            imagem = memento.getImagem();
+            imagemComponente = memento.getImagem();
 
             view.getChkImagemAzul().setSelected(memento.isEstadoAzul());
             view.getChkImagemAzul().setEnabled(!memento.isEstadoAzul());
@@ -244,8 +247,8 @@ public class AplicarFiltroPresenter {
             view.getChkCorSepia().setSelected(memento.isEstadoSerpia());
             view.getChkCorSepia().setEnabled(!memento.isEstadoSerpia());
 
-            view.getChkPixelar().setSelected(memento.isEstadoPexelar());
-            view.getChkPixelar().setEnabled(!memento.isEstadoPexelar());
+            view.getChkPixelar().setSelected(memento.isEstadoPixelar());
+            view.getChkPixelar().setEnabled(!memento.isEstadoPixelar());
 
             view.getChkTonsDeCinza().setSelected(memento.isEstadoTonsDeCinza());
             view.getChkTonsDeCinza().setEnabled(!memento.isEstadoTonsDeCinza());
@@ -253,7 +256,7 @@ public class AplicarFiltroPresenter {
             view.getChkBrilho().setSelected(memento.isEstadoBrilho());
             view.getChkBrilho().setEnabled(!memento.isEstadoBrilho());
 
-            view.getLblImagem().setIcon(new ImageIcon(imagem.getImagem()));
+            view.getLblImagem().setIcon(new ImageIcon(imagemComponente.getImagem()));
             view.repaint();
             view.setVisible(true);
         } catch (IOException ex) {

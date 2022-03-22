@@ -25,7 +25,7 @@ public class ImagemMemento implements Serializable {
     private final boolean estadoRotacao;
     private final boolean estadoNegativo;
     private final boolean estadoSerpia;
-    private final boolean estadoPexelar;
+    private final boolean estadoPixelar;
     private final boolean estadoTonsDeCinza;
     private final boolean estadoBrilho;
 
@@ -39,7 +39,7 @@ public class ImagemMemento implements Serializable {
         this.estadoRotacao = view.getChkRotacao().isSelected();
         this.estadoNegativo = view.getChkNegativo().isSelected();
         this.estadoSerpia = view.getChkCorSepia().isSelected();
-        this.estadoPexelar = view.getChkPixelar().isSelected();
+        this.estadoPixelar = view.getChkPixelar().isSelected();
         this.estadoTonsDeCinza = view.getChkTonsDeCinza().isSelected();
         this.estadoBrilho = view.getChkBrilho().isSelected();
 
@@ -82,8 +82,8 @@ public class ImagemMemento implements Serializable {
         return estadoSerpia;
     }
 
-    public boolean isEstadoPexelar() {
-        return estadoPexelar;
+    public boolean isEstadoPixelar() {
+        return estadoPixelar;
     }
 
     public boolean isEstadoTonsDeCinza() {
