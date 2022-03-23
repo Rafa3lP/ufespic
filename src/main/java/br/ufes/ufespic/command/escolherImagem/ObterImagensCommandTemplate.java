@@ -11,7 +11,6 @@ import java.awt.Insets;
 import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 /**
  *

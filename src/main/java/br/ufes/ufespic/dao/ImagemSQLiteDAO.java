@@ -43,17 +43,17 @@ public class ImagemSQLiteDAO implements IImagemDAO {
         st.execute(sql);
         sql = "INSERT OR IGNORE INTO imagem(codImagem, caminhoImagem, caminhoMiniatura, nomeArquivo) " +
         "VALUES " +
-        "(1,\"imagens\\\\boys-fun.jpg\", \"imagens\\\\thumb\\\\boys-fun-thumb.jpg\", \"Boys Fun\")," +
-        "(2,\"imagens\\\\children-outdoors.jpg\", \"imagens\\\\thumb\\\\children-outdoors-thumb.jpg\", \"Children Outdoors\")," +
-        "(3,\"imagens\\\\cirsium-arvense.jpg\", \"imagens\\\\thumb\\\\cirsium-arvense-thumb.jpg\", \"Cirsium\")," +
-        "(4,\"imagens\\\\city-bridge-wroclaw.jpg\", \"imagens\\\\thumb\\\\city-bridge-wroclaw-thumb.jpg\", \"Bridge\")," +
-        "(5,\"imagens\\\\dog-man.jpg\", \"imagens\\\\thumb\\\\dog-man-thumb.jpg\", \"Dog\"),\n" +
-        "(6,\"imagens\\\\fly-agaric.jpg\", \"imagens\\\\thumb\\\\fly-agaric-thumb.jpg\", \"Fly Agaric\")," +
-        "(7,\"imagens\\\\little-cat-play.jpg\", \"imagens\\\\thumb\\\\little-cat-play-thumb.jpg\", \"Cat\")," +
-        "(8,\"imagens\\\\naan-bread-lunch.jpg\", \"imagens\\\\thumb\\\\naan-bread-lunch-thumb.jpg\", \"Lunch\")," +
-        "(9,\"imagens\\\\panoramic-of-mississippi.jpg\", \"imagens\\\\thumb\\\\panoramic-of-mississippi-thumb.jpg\", \"Mississipi\")," +
-        "(10,\"imagens\\\\pink-hydrangea.jpg\", \"imagens\\\\thumb\\\\pink-hydrangea-thumb.jpg\", \"Hydrangea\")," +
-        "(11,\"imagens\\\\prison-building-wroclaw.jpg\", \"imagens\\\\thumb\\\\prison-building-wroclaw-thumb.jpg\", \"Prision\");";
+        "(1,\"/base_imagens/boys_fun.jpg\", \"/base_imagens/thumb/boys_fun_thumb.jpg\", \"Boys Fun\")," +
+        "(2,\"/base_imagens/children_outdoors.jpg\", \"/base_imagens/thumb/children_outdoors_thumb.jpg\", \"Children Outdoors\")," +
+        "(3,\"/base_imagens/cirsium_arvense.jpg\", \"/base_imagens/thumb/cirsium_arvense_thumb.jpg\", \"Cirsium\")," +
+        "(4,\"/base_imagens/city_bridge_wroclaw.jpg\", \"/base_imagens/thumb/city_bridge_wroclaw_thumb.jpg\", \"Bridge\")," +
+        "(5,\"/base_imagens/dog_man.jpg\", \"/base_imagens/thumb/dog_man_thumb.jpg\", \"Dog\")," +
+        "(6,\"/base_imagens/fly_agaric.jpg\", \"/base_imagens/thumb/fly_agaric_thumb.jpg\", \"Fly Agaric\")," +
+        "(7,\"/base_imagens/little_cat_play.jpg\", \"/base_imagens/thumb/little_cat_play_thumb.jpg\", \"Cat\")," +
+        "(8,\"/base_imagens/naan_bread_lunch.jpg\", \"/base_imagens/thumb/naan_bread_lunch_thumb.jpg\", \"Lunch\")," +
+        "(9,\"/base_imagens/panoramic_mississippi.jpg\", \"/base_imagens/thumb/panoramic_mississippi_thumb.jpg\", \"Mississipi\")," +
+        "(10,\"/base_imagens/pink_hydrangea.jpg\", \"/base_imagens/thumb/pink_hydrangea_thumb.jpg\", \"Hydrangea\")," +
+        "(11,\"/base_imagens/prison_building.jpg\", \"/base_imagens/thumb/prison_building_thumb.jpg\", \"Prision\");" ;
         st.execute(sql);
         st.close();
         ConnectionSQLiteFactory.closeConnection(con);

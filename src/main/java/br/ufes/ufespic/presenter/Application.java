@@ -30,7 +30,7 @@ public class Application {
         getProperties();
         
         logger = new LoggerAdapterFactory().cria(logFormat);
-        
+    
         new MainPresenter();
     }
     

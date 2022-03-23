@@ -71,14 +71,14 @@ public class ImagemProxy {
 
     public ImagemComponente getImagem() throws IOException, InterruptedException {
         if(imagem == null) {
-            imagem = new Imagem(caminhoImagem);
+            imagem = new Imagem(getClass().getResource(caminhoImagem).getPath());
         }
         return imagem;
     }
 
     public ImagemComponente getMiniatura() throws IOException, InterruptedException {
         if(miniatura == null) {
-            miniatura = new Imagem(caminhoMiniatura);
+            miniatura = new Imagem(getClass().getResource(caminhoMiniatura).getPath());
         }
         return miniatura;
     }
