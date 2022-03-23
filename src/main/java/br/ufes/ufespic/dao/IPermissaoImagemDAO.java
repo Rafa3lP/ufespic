@@ -15,6 +15,6 @@ import br.ufes.ufespic.model.Usuario;
 public interface IPermissaoImagemDAO {
     public void inserir(Usuario usuario, ImagemProxy imagem, PermissaoImagem permissao);
     public void alterar(Usuario usuario, ImagemProxy imagem, PermissaoImagem permissao);
-    public void excluir(Usuario usuario, ImagemProxy imagem);
+    public void excluir(Usuario usuario);
     public PermissaoImagem consultarPermissao(Usuario usuario, ImagemProxy imagem);
 }

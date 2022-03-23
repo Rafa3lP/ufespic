@@ -100,8 +100,8 @@ public class PermissaoImagemSQLiteDAO implements IPermissaoImagemDAO {
     }
 
     @Override
-    public void excluir(Usuario usuario, ImagemProxy imagem) {
-        String sql = "DELETE FROM usuarioImagem WHERE idUsuario = ? AND idImagem = ?;";
+    public void excluir(Usuario usuario) {
+        String sql = "DELETE FROM usuarioImagem WHERE idUsuario = ?;";
         Connection con = null;
         PreparedStatement pst = null;
 
@@ -109,7 +109,6 @@ public class PermissaoImagemSQLiteDAO implements IPermissaoImagemDAO {
             con = ConnectionSQLiteFactory.getConnection();
             pst = con.prepareStatement(sql);
             pst.setLong(1, usuario.getId());
-            pst.setInt(2, imagem.getCodImagem());
             pst.executeUpdate();
         } catch (SQLException ex) {
             throw new RuntimeException(ex.getMessage(), ex.getCause());

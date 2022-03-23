@@ -277,6 +277,7 @@ public class UsuarioService extends Observable {
     
     public void deletar(Usuario usuario) {
         try {
+            permissaoImagemDAO.excluir(usuario);
             usuarioDAO.deletar(usuario.getId());
             lerLista();
             Application.getLogger().grava(
