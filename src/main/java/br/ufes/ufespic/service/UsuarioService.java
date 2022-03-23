@@ -6,14 +6,19 @@ package br.ufes.ufespic.service;
 
 import br.ufes.ufespic.dao.INotificacaoDAO;
 import br.ufes.ufespic.dao.INotificacaoDAOFactory;
+import br.ufes.ufespic.dao.IPermissaoImagemDAO;
+import br.ufes.ufespic.dao.IPermissaoImagemDAOFactory;
 import br.ufes.ufespic.dao.IUsuarioDAO;
 import br.ufes.ufespic.dao.IUsuarioDAOFactory;
 import br.ufes.ufespic.dao.NotificacaoDAOFactory;
+import br.ufes.ufespic.dao.PermissaoImagemDAOFactory;
 import br.ufes.ufespic.dao.UsuarioDAOFactory;
 import br.ufes.ufespic.logger.Log;
 import br.ufes.ufespic.logger.LogError;
 import br.ufes.ufespic.logger.LogInfo;
+import br.ufes.ufespic.model.ImagemProxy;
 import br.ufes.ufespic.model.Notificacao;
+import br.ufes.ufespic.model.PermissaoImagem;
 import br.ufes.ufespic.model.Usuario;
 import br.ufes.ufespic.observer.Observable;
 import br.ufes.ufespic.presenter.Application;
@@ -36,7 +41,10 @@ public class UsuarioService extends Observable {
     private final IUsuarioDAO usuarioDAO;
     private final INotificacaoDAOFactory notificacaoDAOfactory;
     private final INotificacaoDAO notificacaoDAO;
+    private final IPermissaoImagemDAOFactory permissaoImagemDAOFactory;
+    private final IPermissaoImagemDAO permissaoImagemDAO;
     private List<Usuario> listaUsuarios;
+    private ImagemService imagemService;
     private static UsuarioService instancia;
 
     private UsuarioService() {
@@ -45,6 +53,11 @@ public class UsuarioService extends Observable {
         
         this.notificacaoDAOfactory = new NotificacaoDAOFactory();
         this.notificacaoDAO = this.notificacaoDAOfactory.cria("sqlite");
+        
+        this.permissaoImagemDAOFactory = new PermissaoImagemDAOFactory();
+        this.permissaoImagemDAO = this.permissaoImagemDAOFactory.cria("sqlite");
+        
+        this.imagemService = ImagemService.getInstancia();
         
         this.listaUsuarios = new ArrayList<>();
         lerLista();
@@ -98,6 +111,18 @@ public class UsuarioService extends Observable {
             );
             usuario.setSenha(senha);
             usuario.setId(usuarioDAO.criar(usuario));
+            
+            // definir permissoes iniciais
+            boolean permitido = usuario.isAdmin();
+        
+            for(ImagemProxy imagem: imagemService.getImagensDaPasta()) {
+                permissaoImagemDAO.inserir(
+                    usuario, 
+                    imagem, 
+                    new PermissaoImagem(permitido, permitido, permitido, permitido)
+                );
+            }
+            
             // se está autenticado é um adm
             if (Session.isAutenticado()) {
                 aprovarUsuario(usuario.getId());

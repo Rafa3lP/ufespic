@@ -8,6 +8,6 @@ package br.ufes.ufespic.dao;
  *
  * @author Heflain
  */
-public interface IUsuarioImagemDAOFactory {
-    public IUsuarioImagemDAO cria(String bd);
+public interface IPermissaoImagemDAOFactory {
+    public IPermissaoImagemDAO cria(String bd);
 }

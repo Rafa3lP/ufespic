@@ -5,7 +5,9 @@
 package br.ufes.ufespic.dao;
 
 import br.ufes.ufespic.connection.ConnectionSQLiteFactory;
-import br.ufes.ufespic.model.UsuarioImagem;
+import br.ufes.ufespic.model.ImagemProxy;
+import br.ufes.ufespic.model.PermissaoImagem;
+import br.ufes.ufespic.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,9 +20,9 @@ import java.util.logging.Logger;
  *
  * @author Heflain
  */
-public class UsuarioImagemSQLiteDAO implements IUsuarioImagemDAO {
+public class PermissaoImagemSQLiteDAO implements IPermissaoImagemDAO {
 
-    public UsuarioImagemSQLiteDAO() {
+    public PermissaoImagemSQLiteDAO() {
         try {
             criaTUsuarioImagem();
         } catch (SQLException ex) {
@@ -30,16 +32,15 @@ public class UsuarioImagemSQLiteDAO implements IUsuarioImagemDAO {
 
     private void criaTUsuarioImagem() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS usuarioImagem("
-                + " codUsuarioImagem INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + " codImagem INTEGER NOT NULL,"
-                + " codUsuario INTEGER NOT NULL,"
+                + " idUsuario INTEGER NOT NULL,"
+                + " idImagem INTEGER NOT NULL,"
                 + " visualizar  BOOLEAN DEFAULT FALSE NOT NULL,"
                 + " aplicarFiltro BOOLEAN DEFAULT FALSE NOT NULL,"
-                + " salvar BOOLEAN DEFAULT FALSE NOT NULL,"
                 + " excluir BOOLEAN DEFAULT FALSE NOT NULL,"
-                + " exporta BOOLEAN DEFAULT FALSE NOT NULL,"
-                + " FOREIGN KEY codImagem REFERENCES imagem(codImagem),"
-                + " FOREIGN KEY codUsuario REFERENCES usuario(idUsuario)"
+                + " exportar BOOLEAN DEFAULT FALSE NOT NULL,"
+                + " PRIMARY KEY (idUsuario, idImagem),"
+                + " FOREIGN KEY (idImagem) REFERENCES imagem(codImagem),"
+                + " FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)"
                 + ");";
 
         Connection con = ConnectionSQLiteFactory.getConnection();
@@ -50,22 +51,21 @@ public class UsuarioImagemSQLiteDAO implements IUsuarioImagemDAO {
     }
 
     @Override
-    public void inserir(UsuarioImagem usuarioImg) {
-        String sql = "INSERT INTO usuarioImagem(codImagem, codUsuario, visualizar, aplicarFiltro, salvar, excluir, exporta)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?);";
+    public void inserir(Usuario usuario, ImagemProxy imagem, PermissaoImagem permissao) {
+        String sql = "INSERT INTO usuarioImagem(idUsuario, idImagem, visualizar, aplicarFiltro, excluir, exportar)"
+                + " VALUES (?, ?, ?, ?, ?, ?);";
         Connection con = null;
         PreparedStatement pst = null;
         try {
             con = ConnectionSQLiteFactory.getConnection();
             pst = con.prepareStatement(sql);
 
-            pst.setInt(1, usuarioImg.getCodImagem());
-            pst.setInt(2, usuarioImg.getCodUsuario());
-            pst.setBoolean(3, usuarioImg.isVisualizar());
-            pst.setBoolean(4, usuarioImg.isAplicarFiltro());
-            pst.setBoolean(5, usuarioImg.isSalvar());
-            pst.setBoolean(6, usuarioImg.isExcluir());
-            pst.setBoolean(7, usuarioImg.isExporta());
+            pst.setLong(1, usuario.getId());
+            pst.setInt(2, imagem.getCodImagem());
+            pst.setBoolean(3, permissao.isPermitidoVisualizar());
+            pst.setBoolean(4, permissao.isPermitidoAplicarFiltro());
+            pst.setBoolean(5, permissao.isPermitidoExcluir());
+            pst.setBoolean(6, permissao.isPermitidoExportar());
 
             pst.execute();
         } catch (SQLException ex) {
@@ -76,21 +76,20 @@ public class UsuarioImagemSQLiteDAO implements IUsuarioImagemDAO {
     }
 
     @Override
-    public void alterar(UsuarioImagem usuarioImg) {
+    public void alterar(Usuario usuario, ImagemProxy imagem, PermissaoImagem permissao) {
         String sql = "UPDATE usuarioImagem"
-                + " SET visualizar = ?, aplicarFiltro = ?, salvar = ?, excluir = ?, exporta = ?"
-                + " WHERE codImagem = ? AND codUsuario = ?;";
+                + " SET visualizar = ?, aplicarFiltro = ?, excluir = ?, exportar = ?"
+                + " WHERE idImagem = ? AND idUsuario = ?;";
         Connection con = null;
         PreparedStatement ps = null;
 
         try {
             con = ConnectionSQLiteFactory.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setBoolean(1, usuarioImg.isVisualizar());
-            ps.setBoolean(2, usuarioImg.isAplicarFiltro());
-            ps.setBoolean(3, usuarioImg.isSalvar());
-            ps.setBoolean(4, usuarioImg.isExcluir());
-            ps.setBoolean(5, usuarioImg.isExporta());
+            ps.setBoolean(1, permissao.isPermitidoVisualizar());
+            ps.setBoolean(2, permissao.isPermitidoAplicarFiltro());
+            ps.setBoolean(3, permissao.isPermitidoExcluir());
+            ps.setBoolean(4, permissao.isPermitidoExportar());
 
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -101,15 +100,16 @@ public class UsuarioImagemSQLiteDAO implements IUsuarioImagemDAO {
     }
 
     @Override
-    public void excluir(int codUsuarioImg) {
-        String sql = "DELETE FROM usuarioImagem WHERE codUsuarioImagem = ?;";
+    public void excluir(Usuario usuario, ImagemProxy imagem) {
+        String sql = "DELETE FROM usuarioImagem WHERE idUsuario = ? AND idImagem = ?;";
         Connection con = null;
         PreparedStatement pst = null;
 
         try {
             con = ConnectionSQLiteFactory.getConnection();
             pst = con.prepareStatement(sql);
-            pst.setInt(1, codUsuarioImg);
+            pst.setLong(1, usuario.getId());
+            pst.setInt(2, imagem.getCodImagem());
             pst.executeUpdate();
         } catch (SQLException ex) {
             throw new RuntimeException(ex.getMessage(), ex.getCause());
@@ -119,30 +119,26 @@ public class UsuarioImagemSQLiteDAO implements IUsuarioImagemDAO {
     }
 
     @Override
-    public UsuarioImagem get(int codUsuario, int codImagem) {
+    public PermissaoImagem consultarPermissao(Usuario usuario, ImagemProxy imagem) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        UsuarioImagem usuarioImagem = null;
+        PermissaoImagem usuarioImagem = null;
         try {
-            String sql = "SELECT * FROM usuarioImagem WHERE codUsuario = ? AND codImagem = ?;";
+            String sql = "SELECT * FROM usuarioImagem WHERE idUsuario = ? AND idImagem = ?;";
 
             con = ConnectionSQLiteFactory.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setLong(1, codUsuario);
-            ps.setLong(2, codImagem);
+            ps.setLong(1, usuario.getId());
+            ps.setLong(2, imagem.getCodImagem());
             rs = ps.executeQuery();
 
-            while (rs.next()) {
-                usuarioImagem = new UsuarioImagem(
-                        rs.getInt("codUsuarioImagem"),
-                        rs.getInt("codUsuario"),
-                        rs.getInt("codImagem"),
-                        rs.getBoolean("visualizar"),
-                        rs.getBoolean("aplicarFiltro"),
-                        rs.getBoolean("salvar"),
-                        rs.getBoolean("excluir"),
-                        rs.getBoolean("exporta")
+            while(rs.next()) {
+                usuarioImagem = new PermissaoImagem(
+                    rs.getBoolean("visualizar"),
+                    rs.getBoolean("aplicarFiltro"),
+                    rs.getBoolean("exportar"),
+                    rs.getBoolean("excluir")
                 );
             }
 

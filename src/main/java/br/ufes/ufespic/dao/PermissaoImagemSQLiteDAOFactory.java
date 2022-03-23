@@ -8,13 +8,13 @@ package br.ufes.ufespic.dao;
  *
  * @author Heflain
  */
-public class UsuarioImagemSQLiteDAOFactory implements IUsuarioImagemDAOFactory {
+public class PermissaoImagemSQLiteDAOFactory implements IPermissaoImagemDAOFactory {
 
     @Override
-    public IUsuarioImagemDAO cria(String bd) {
+    public IPermissaoImagemDAO cria(String bd) {
         switch (bd) {
             case "sqlite":
-                return new UsuarioImagemSQLiteDAO();
+                return new PermissaoImagemSQLiteDAO();
             default:
                 throw new RuntimeException("Tipo de DAO não suportado");
         }
