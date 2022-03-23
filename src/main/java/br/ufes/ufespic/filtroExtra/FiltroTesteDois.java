@@ -21,9 +21,9 @@ public class FiltroTesteDois extends RGBDecorator{
     public void alteraCor() {
         a = (rgb >> 24) & 0xff;
         blue = rgb & 0xff;
-        green = (rgb >> 8) & 0xff;
+        red = (rgb >> 8) & 0xff;
         
-        rgb = (a << 24) | (green << 8);
+        rgb = (a << 24) | (red << 5);
     }
     
 }

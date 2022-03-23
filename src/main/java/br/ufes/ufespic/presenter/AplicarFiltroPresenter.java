@@ -6,12 +6,15 @@ package br.ufes.ufespic.presenter;
 
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroAzul;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroBrilho;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroDois;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroEspelhada;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroNegativa;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroPixelada;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroRotaciona;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroSepia;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroTomDeCinza;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroRosa;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroAzulGranulado;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroVerde;
 import br.ufes.ufespic.decorator.AplicarFiltro.FiltroVermelho;
 import br.ufes.ufespic.decorator.AplicarFiltro.IFiltro;
@@ -63,6 +66,7 @@ public class AplicarFiltroPresenter {
                 public void actionPerformed(ActionEvent e) {
                     view.getChkImagemAzul().setEnabled(false);
                     aplicarFiltro(new FiltroAzul());
+                    
                     addImagemZelador();
                 }
             });
@@ -80,7 +84,7 @@ public class AplicarFiltroPresenter {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     view.getChkImagemVermelha().setEnabled(false);
-                    aplicarFiltro(new FiltroVermelho());
+                    
                     addImagemZelador();
                 }
             });
@@ -89,9 +93,7 @@ public class AplicarFiltroPresenter {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     view.getChkImagemEspelhada().setEnabled(false);
-
-                    aplicarFiltro(new FiltroEspelhada());
-
+                    aplicarFiltro(new FiltroAzulGranulado());
                     addImagemZelador();
                 }
             });
@@ -100,7 +102,7 @@ public class AplicarFiltroPresenter {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     view.getChkRotacao().setEnabled(false);
-                    aplicarFiltro(new FiltroRotaciona());
+                    aplicarFiltro(new FiltroDois());
                     addImagemZelador();
                 }
             });
@@ -109,7 +111,8 @@ public class AplicarFiltroPresenter {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     view.getChkNegativo().setEnabled(false);
-                    aplicarFiltro(new FiltroNegativa());
+                    //aplicarFiltro(new FiltroNegativa());
+                    aplicarFiltro(new FiltroRosa());
                     addImagemZelador();
                 }
             });

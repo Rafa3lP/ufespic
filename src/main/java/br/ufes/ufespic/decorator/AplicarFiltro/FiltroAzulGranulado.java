@@ -4,23 +4,23 @@
  */
 package br.ufes.ufespic.decorator.AplicarFiltro;
 
-import br.ufes.ufespic.filtroExtra.FiltroTesteTres;
+import br.ufes.ufespic.filtroExtra.FiltroTesteAzulGranulado;
 import com.pss.imagem.processamento.decorator.ImagemComponente;
 
 /**
  *
  * @author Heflain
  */
-public class FiltroTres implements IFiltro{
+public class FiltroAzulGranulado implements IFiltro{
 
     @Override
     public ImagemComponente execute(ImagemComponente imagem, int opc) throws InterruptedException {
-        return new FiltroTesteTres(imagem);
+        return new FiltroTesteAzulGranulado(imagem);
     }
 
     @Override
     public ImagemComponente execute(ImagemComponente imagem) throws InterruptedException {
-        return new FiltroTesteTres(imagem);
+        return new FiltroTesteAzulGranulado(imagem);
     }
 
     @Override

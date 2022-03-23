@@ -11,9 +11,9 @@ import com.pss.imagem.processamento.decorator.RGBDecorator;
  *
  * @author Heflain
  */
-public class FiltroTesteTres extends RGBDecorator {
+public class FiltroTesteRosa extends RGBDecorator {
 
-    public FiltroTesteTres(ImagemComponente elementoDecorado) throws InterruptedException {
+    public FiltroTesteRosa(ImagemComponente elementoDecorado) throws InterruptedException {
         super(elementoDecorado);
     }
 
@@ -21,8 +21,8 @@ public class FiltroTesteTres extends RGBDecorator {
     public void alteraCor() {
         a = (rgb >> 24) & 0xff;
         red = (rgb >> 16) & 0xff;
-
-        this.rgb = (a << 24) | (red << 16);
+        blue = rgb & 0xff;
+        this.rgb = (a << 24) | (red << 16) | blue;
     }
 
 }
