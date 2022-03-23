@@ -32,8 +32,11 @@ public class SalvarImagemFiltroDecorator extends ImagemDecorator {
 
     private BufferedImage salvarImagem() throws IOException {
         imagem = elementoDecorado.getImagem();
-
+        
+        if(!new File("teste").exists()) new File("teste").mkdir();
+        
         String caminho = new File("teste").getAbsolutePath();
+        
         File arquivo = new File(caminho + "\\" + this.nome + ".jpg");
 
         ImageIO.write(elementoDecorado.getImagem(), "png", arquivo);
