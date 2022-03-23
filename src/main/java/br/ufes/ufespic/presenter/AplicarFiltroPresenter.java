@@ -4,17 +4,17 @@
  */
 package br.ufes.ufespic.presenter;
 
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroAzul;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroBrilho;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroEspelhada;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroNegativa;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroPixelada;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroRotaciona;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroSepia;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroTomDeCinza;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroVerde;
-import br.ufes.ufespic.Strategy.AplicarFiltro.FiltroVermelho;
-import br.ufes.ufespic.Strategy.AplicarFiltro.IFiltro;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroAzul;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroBrilho;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroEspelhada;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroNegativa;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroPixelada;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroRotaciona;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroSepia;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroTomDeCinza;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroVerde;
+import br.ufes.ufespic.decorator.AplicarFiltro.FiltroVermelho;
+import br.ufes.ufespic.decorator.AplicarFiltro.IFiltro;
 import br.ufes.ufespic.decorator.salvarimagem.SalvarImagemFiltroDecorator;
 import br.ufes.ufespic.memento.ImagemZelador;
 import br.ufes.ufespic.model.ImagemMemento;
