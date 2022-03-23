@@ -32,7 +32,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnFechar" min="-2" pref="100" max="-2" attributes="0"/>
-              <EmptySpace pref="389" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="progressBar" min="-2" pref="121" max="-2" attributes="0"/>
+              <EmptySpace pref="243" max="32767" attributes="0"/>
+              <Component id="btnExportar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAplicarFiltros" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnExcluir" min="-2" pref="100" max="-2" attributes="0"/>
@@ -44,14 +48,16 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jScrollPane1" pref="420" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="458" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnFechar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="btnExcluir" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="btnAplicarFiltros" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="progressBar" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="btnExportar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -110,6 +116,29 @@
           <Image iconType="3" name="/images/cosmetic_brush_30px.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Aplicar Filtros"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+            <EmptyBorder bottom="5" left="5" right="5" top="5"/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JProgressBar" name="progressBar">
+      <Properties>
+        <Property name="indeterminate" type="boolean" value="true"/>
+        <Property name="string" type="java.lang.String" value=""/>
+        <Property name="stringPainted" type="boolean" value="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnExportar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/jpg_30px.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Exportar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
             <EmptyBorder bottom="5" left="5" right="5" top="5"/>

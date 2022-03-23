@@ -387,4 +387,8 @@ public class UsuarioService extends Observable {
         lerLista();
     }
     
+    public PermissaoImagem getPermissao(Usuario usuario, ImagemProxy imagem) {
+        return permissaoImagemDAO.consultarPermissao(usuario, imagem);
+    }
+    
 }

@@ -11,6 +11,7 @@ import java.awt.Insets;
 import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,6 +41,7 @@ public class ObterImagensCommandTemplate extends EscolherImagemCommandTemplate {
                         
                         cardImagem.addActionListener((e) -> {
                             presenter.getState().visualizar(imagem);
+                            
                         });
                         
                         view.getPainelImagens().add(cardImagem);

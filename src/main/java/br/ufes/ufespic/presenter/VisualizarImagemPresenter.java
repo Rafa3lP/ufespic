@@ -5,9 +5,10 @@
 package br.ufes.ufespic.presenter;
 
 import br.ufes.ufespic.model.ImagemProxy;
+import br.ufes.ufespic.state.visualizarImaem.PreparandoImagemState;
+import br.ufes.ufespic.state.visualizarImaem.VisualizarImagemState;
 import br.ufes.ufespic.view.VisualizarImagemView;
-import java.io.IOException;
-import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,33 +18,52 @@ public class VisualizarImagemPresenter {
     private MainPresenter mainPresenter;
     private VisualizarImagemView view;
     private ImagemProxy imagemProxy;
+    private VisualizarImagemState state;
 
     public VisualizarImagemPresenter(MainPresenter mainPresenter, ImagemProxy imagemProxy) {
-        try {
-            this.view = new VisualizarImagemView();
-            this.mainPresenter = mainPresenter;
-            this.imagemProxy = imagemProxy;
-            
-            this.view.getLblImagem().setIcon(new ImageIcon(imagemProxy.getImagem().getImagem()));
-            
-            this.view.getBtnFechar().addActionListener((e) -> {
-                view.dispose();
-            });
-            this.view.getBtnExcluir().addActionListener((e) -> {
-                
-            });
-            this.view.getBtnAplicarFiltros().addActionListener((e) -> {
-                new AplicarFiltroPresenter(mainPresenter, imagemProxy);
-                view.dispose();
-            });
-            
-            this.view.setVisible(true);
-            this.mainPresenter.addToDesktopPane(view);
-        } catch (IOException iOException) {
-            /// implementar mensagem de erro
-        } catch (InterruptedException interruptedException) {
-        }
+        this.view = new VisualizarImagemView();
+        this.mainPresenter = mainPresenter;
+        this.imagemProxy = imagemProxy;
+
+        this.view.getBtnFechar().addActionListener((e) -> {
+            state.fechar();
+        });
+        this.view.getBtnExcluir().addActionListener((e) -> {
+            try{
+                state.excluir();
+            }catch(RuntimeException ex) {
+                JOptionPane.showMessageDialog(view, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        this.view.getBtnAplicarFiltros().addActionListener((e) -> {
+            try{
+                state.aplicarFiltros();
+            }catch(RuntimeException ex){
+                JOptionPane.showMessageDialog(view, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        this.view.setVisible(true);
+        this.mainPresenter.addToDesktopPane(view);
+
+        setState(new PreparandoImagemState(this, imagemProxy));
+
     }
-    
+
+    public MainPresenter getMainPresenter() {
+        return mainPresenter;
+    }
+
+    public VisualizarImagemView getView() {
+        return view;
+    }
+
+    public VisualizarImagemState getState() {
+        return state;
+    }
+
+    public void setState(VisualizarImagemState state) {
+        this.state = state;
+    }
     
 }
