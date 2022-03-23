@@ -4,11 +4,18 @@
  */
 package br.ufes.ufespic.state.visualizarImaem;
 
+import br.ufes.ufespic.decorator.exportaImagem.ExportarImagemFiltroDecorator;
 import br.ufes.ufespic.model.ImagemProxy;
 import br.ufes.ufespic.model.PermissaoImagem;
 import br.ufes.ufespic.presenter.AplicarFiltroPresenter;
 import br.ufes.ufespic.presenter.Application;
 import br.ufes.ufespic.presenter.VisualizarImagemPresenter;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,6 +48,27 @@ public class ExibindoImagemState extends VisualizarImagemState {
     @Override
     public void excluir() {
         throw new RuntimeException("Método excluir não pode ser executado");
+    }
+    
+    @Override
+    public void exportar() {
+        JFileChooser fc = new JFileChooser();
+        fc.setCurrentDirectory(new java.io.File("."));
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int returnVal = fc.showSaveDialog(view);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            try {
+                File localEscolhido = fc.getSelectedFile();
+                new ExportarImagemFiltroDecorator(imagem.getImagem(), imagem.getNomeArquivo(), localEscolhido);
+                JOptionPane.showMessageDialog(view, "Imagem Exportada", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            } catch (IOException | InterruptedException ex) {
+                throw new RuntimeException("Erro ao exportar imagem");
+            }
+        } else {
+            throw new RuntimeException("Caminho inválido");
+        }
+        
+        
     }
     
 }

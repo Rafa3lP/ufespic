@@ -4,7 +4,7 @@
  */
 package br.ufes.ufespic.presenter;
 
-import br.ufes.ufespic.decorator.exportaImagem.ExportaImagemFiltroDecorator;
+import br.ufes.ufespic.decorator.exportaImagem.ExportarImagemFiltroDecorator;
 import com.pss.imagem.processamento.decorator.ImagemComponente;
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +35,7 @@ public class ExportaPresenter {
             File diretorio = fc.getCurrentDirectory();
             String nome = JOptionPane.showInputDialog(null, "Nome do arquivo");
             try {
-                new ExportaImagemFiltroDecorator(imagem, nome, diretorio);
+                new ExportarImagemFiltroDecorator(imagem, nome, diretorio);
             } catch (InterruptedException ex) {
                 Logger.getLogger(ExportaPresenter.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

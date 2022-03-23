@@ -33,7 +33,7 @@ public class SalvarImagemFiltroDecorator extends ImagemDecorator {
     private BufferedImage salvarImagem() throws IOException {
         imagem = elementoDecorado.getImagem();
 
-        String caminho = new File("teste").getAbsolutePath();
+        String caminho = new File("imagens").getAbsolutePath();
         File arquivo = new File(caminho + "\\" + this.nome + ".jpg");
 
         ImageIO.write(elementoDecorado.getImagem(), "png", arquivo);

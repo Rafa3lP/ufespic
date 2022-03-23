@@ -35,6 +35,13 @@ public class VisualizarImagemPresenter {
                 JOptionPane.showMessageDialog(view, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             }
         });
+        this.view.getBtnExportar().addActionListener((e) -> {
+            try{
+                state.exportar();
+            }catch(RuntimeException ex) {
+                JOptionPane.showMessageDialog(view, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        });
         this.view.getBtnAplicarFiltros().addActionListener((e) -> {
             try{
                 state.aplicarFiltros();

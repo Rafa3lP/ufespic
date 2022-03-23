@@ -15,11 +15,11 @@ import javax.imageio.ImageIO;
  *
  * @author Heflain
  */
-public class ExportaImagemFiltroDecorator extends ImagemDecorator{
+public class ExportarImagemFiltroDecorator extends ImagemDecorator{
     private String nome;
     private File caminho;
 
-    public ExportaImagemFiltroDecorator(ImagemComponente elementoDecorado, String nome, File caminho) throws InterruptedException, IOException {
+    public ExportarImagemFiltroDecorator(ImagemComponente elementoDecorado, String nome, File caminho) throws InterruptedException, IOException {
         super(elementoDecorado);
         this.nome = nome;
         this.caminho = caminho;

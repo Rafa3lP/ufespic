@@ -33,6 +33,10 @@ public abstract class VisualizarImagemState {
     public void excluir() {
         throw new RuntimeException("Método excluir não pode ser executado");
     }
+    
+    public void exportar() {
+        throw new RuntimeException("Método exportar não pode ser executado");
+    }
   
     public void fechar() {
         this.view.dispose();
